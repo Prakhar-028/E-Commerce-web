@@ -1,0 +1,32 @@
+[
+  {
+    "id": "rev-1",
+    "productId": "prod-6",
+    "reviewerName": "Sarah Jenkins",
+    "rating": 5,
+    "title": "Very accurate and easy to use",
+    "comment": "My doctor recommended I start monitoring my blood pressure at home. This unit is very similar to what they use in the clinic. The cuff is easy to put on by myself, and the large numbers are great since I don't always have my reading glasses handy. Readings have been very consistent.",
+    "date": "2026-04-12T10:00:00.000Z",
+    "verifiedBuyer": true
+  },
+  {
+    "id": "rev-2",
+    "productId": "prod-6",
+    "reviewerName": "Robert T.",
+    "rating": 4,
+    "title": "Good quality, helpful memory feature",
+    "comment": "Solid build quality and feels like a professional medical device. The 2-user memory function is perfect for my wife and me to both track our stats without getting them mixed up. Deducted one star because the storage case it comes with is a bit flimsy, but the machine itself is excellent.",
+    "date": "2026-03-28T14:30:00.000Z",
+    "verifiedBuyer": true
+  },
+  {
+    "id": "rev-3",
+    "productId": "prod-1",
+    "reviewerName": "David K.",
+    "rating": 5,
+    "title": "Great value for 1000mg",
+    "comment": "Tastes fine, easy to swallow, and has buffered properties so it doesn't upset my stomach. Def recommend.",
+    "date": "2026-05-15T09:12:00.000Z",
+    "verifiedBuyer": true
+  }
+]

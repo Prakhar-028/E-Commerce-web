@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>MEDICARE - Gmail Sign-In</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <!-- Material Symbols Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "outline": "#6f7a72",
+            "on-secondary": "#ffffff",
+            "inverse-surface": "#2e3132",
+            "secondary": "#575e70",
+            "outline-variant": "#bec9c1",
+            "inverse-primary": "#83d7ae",
+            "error": "#ba1a1a",
+            "on-primary-fixed": "#002114",
+            "on-primary-container": "#91e5bc",
+            "on-secondary-fixed-variant": "#404758",
+            "tertiary-fixed-dim": "#c0c6d7",
+            "on-surface-variant": "#3f4943",
+            "surface-container-low": "#f3f4f5",
+            "mist-gray": "#d9dadb",
+            "tertiary-fixed": "#dce2f3",
+            "on-secondary-container": "#5d6476",
+            "on-tertiary-fixed": "#151c28",
+            "on-secondary-fixed": "#141b2b",
+            "surface-container": "#edeeef",
+            "surface-dim": "#d9dadb",
+            "tertiary-container": "#555c6a",
+            "sale-red": "#ba1a1a",
+            "on-primary-fixed-variant": "#005237",
+            "tertiary": "#3e4552",
+            "on-tertiary": "#ffffff",
+            "surface": "#f8f9fa",
+            "surface-bright": "#f8f9fa",
+            "on-primary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "emerald-green": "#006948",
+            "success-container": "#f5fff7",
+            "on-error-container": "#93000a",
+            "onyx-black": "#191c1d",
+            "primary-fixed-dim": "#83d7ae",
+            "surface-tint": "#076c4b",
+            "on-tertiary-container": "#ced5e5",
+            "surface-container-highest": "#e1e3e4",
+            "inverse-on-surface": "#f0f1f2",
+            "error-container": "#ffdad6",
+            "secondary-fixed": "#dbe2f8",
+            "on-surface": "#191c1d",
+            "on-tertiary-fixed-variant": "#404754",
+            "primary": "#004f35",
+            "secondary-container": "#dbe2f8",
+            "surface-variant": "#e1e3e4",
+            "secondary-fixed-dim": "#bfc6db",
+            "on-error": "#ffffff",
+            "primary-container": "#006948",
+            "on-background": "#191c1d",
+            "surface-container-high": "#e7e8e9",
+            "background": "#f8f9fa",
+            "primary-fixed": "#9ff4ca"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          fontFamily: {
+            "sans": ["Hanken Grotesk", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#f0f4f9] min-h-screen flex items-center justify-center font-sans px-4">
+
+  <!-- Main Login Panel -->
+  <div class="w-full max-w-[450px] bg-white border border-outline-variant rounded-2xl p-8 md:p-10 shadow-md">
+    
+    <!-- Google Identity Brand header -->
+    <div class="flex flex-col items-center mb-8">
+      <div class="flex items-center gap-1.5 mb-2">
+        <!-- Colored Google G letters or icon -->
+        <span class="font-bold text-2xl tracking-tight text-on-surface flex items-center">
+          <span class="text-blue-600">G</span>
+          <span class="text-red-500">o</span>
+          <span class="text-yellow-500">o</span>
+          <span class="text-blue-600">g</span>
+          <span class="text-green-500">l</span>
+          <span class="text-red-500">e</span>
+        </span>
+      </div>
+      <h1 class="text-xl font-bold text-on-surface">Sign in</h1>
+      <p class="text-xs text-on-surface-variant mt-1.5 text-center">to continue to <strong class="text-primary font-semibold">MEDICARE</strong></p>
+    </div>
+
+    <!-- Login form -->
+    <form id="google-login-form" class="space-y-6">
+      
+      <!-- Email Field -->
+      <div>
+        <label for="gmail-email" class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Gmail Address</label>
+        <input type="email" id="gmail-email" required class="w-full rounded-lg border border-outline-variant bg-surface px-4 py-3 text-sm focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none transition-all" placeholder="yourname@gmail.com"/>
+        <p class="text-[10px] text-on-surface-variant mt-1.5 leading-relaxed">We will simulate an authentication connection to verify your Gmail identity.</p>
+      </div>
+
+      <!-- Password Field (Simulated) -->
+      <div>
+        <label for="gmail-password" class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Password</label>
+        <input type="password" id="gmail-password" required class="w-full rounded-lg border border-outline-variant bg-surface px-4 py-3 text-sm focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none transition-all" placeholder="••••••••"/>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex flex-col gap-3 pt-2">
+        <button type="submit" id="submit-login-btn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm py-3 rounded-lg shadow transition-colors flex justify-center items-center gap-xs">
+          Sign In with Gmail
+        </button>
+        <a id="guest-btn" href="/index.html" class="w-full bg-white border border-outline-variant text-on-surface-variant hover:bg-surface-container-low text-center font-semibold text-xs py-3 rounded-lg transition-colors">
+          Continue as Guest
+        </a>
+      </div>
+    </form>
+
+    <!-- Simulated loading overlay -->
+    <div id="loading-overlay" class="hidden flex flex-col items-center justify-center py-12 space-y-4">
+      <div class="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-blue-600"></div>
+      <p class="text-xs text-on-surface-variant font-semibold">Connecting to Google Accounts...</p>
+    </div>
+
+  </div>
+
+  <script src="/js/main.js"></script>
+  <script>
+    // Get redirect path from query param
+    function getRedirectUrl() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('redirect') || '/index.html';
+    }
+
+    // Handle form submission
+    document.getElementById('google-login-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const email = document.getElementById('gmail-email').value;
+      if (!email.toLowerCase().endsWith('@gmail.com') && !email.toLowerCase().includes('@')) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+
+      const form = document.getElementById('google-login-form');
+      const loader = document.getElementById('loading-overlay');
+      
+      // Toggle visibility to show loading
+      form.classList.add('hidden');
+      loader.classList.remove('hidden');
+
+      // Simulate network request
+      setTimeout(() => {
+        // Extract a nice name from the email
+        const parts = email.split('@');
+        const username = parts[0];
+        const formattedName = username.charAt(0).toUpperCase() + username.slice(1).replace(/[\._-]/g, ' ');
+        const givenName = formattedName.split(' ')[0];
+
+        // Seed nice mock user profile details
+        const mockUser = {
+          name: formattedName,
+          given_name: givenName,
+          email: email.toLowerCase(),
+          picture: `https://api.dicebear.com/7.x/pixel-art/svg?seed=${encodeURIComponent(username)}` // nice pixel avatar based on username
+        };
+
+        // Save session
+        setUserSession(mockUser);
+
+        // Redirect back
+        window.location.href = getRedirectUrl();
+      }, 1500);
+    });
+
+    // Update guest checkout button link if necessary
+    document.getElementById('guest-btn').addEventListener('click', (e) => {
+      e.preventDefault();
+      // Simply go to the storefront homepage
+      window.location.href = '/index.html';
+    });
+  </script>
+</body>
+</html>

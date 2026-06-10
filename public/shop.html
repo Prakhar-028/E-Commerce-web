@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>MEDICARE - Shop All Pharmacy</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <!-- Material Symbols Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "outline": "#6f7a72",
+            "on-secondary": "#ffffff",
+            "inverse-surface": "#2e3132",
+            "secondary": "#575e70",
+            "outline-variant": "#bec9c1",
+            "inverse-primary": "#83d7ae",
+            "error": "#ba1a1a",
+            "on-primary-fixed": "#002114",
+            "on-primary-container": "#91e5bc",
+            "on-secondary-fixed-variant": "#404758",
+            "tertiary-fixed-dim": "#c0c6d7",
+            "on-surface-variant": "#3f4943",
+            "surface-container-low": "#f3f4f5",
+            "mist-gray": "#d9dadb",
+            "tertiary-fixed": "#dce2f3",
+            "on-secondary-container": "#5d6476",
+            "on-tertiary-fixed": "#151c28",
+            "on-secondary-fixed": "#141b2b",
+            "surface-container": "#edeeef",
+            "surface-dim": "#d9dadb",
+            "tertiary-container": "#555c6a",
+            "sale-red": "#ba1a1a",
+            "on-primary-fixed-variant": "#005237",
+            "tertiary": "#3e4552",
+            "on-tertiary": "#ffffff",
+            "surface": "#f8f9fa",
+            "surface-bright": "#f8f9fa",
+            "on-primary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "emerald-green": "#006948",
+            "success-container": "#f5fff7",
+            "on-error-container": "#93000a",
+            "onyx-black": "#191c1d",
+            "primary-fixed-dim": "#83d7ae",
+            "surface-tint": "#076c4b",
+            "on-tertiary-container": "#ced5e5",
+            "surface-container-highest": "#e1e3e4",
+            "inverse-on-surface": "#f0f1f2",
+            "error-container": "#ffdad6",
+            "secondary-fixed": "#dbe2f8",
+            "on-surface": "#191c1d",
+            "on-tertiary-fixed-variant": "#404754",
+            "primary": "#004f35",
+            "secondary-container": "#dbe2f8",
+            "surface-variant": "#e1e3e4",
+            "secondary-fixed-dim": "#bfc6db",
+            "on-error": "#ffffff",
+            "primary-container": "#006948",
+            "on-background": "#191c1d",
+            "surface-container-high": "#e7e8e9",
+            "background": "#f8f9fa",
+            "primary-fixed": "#9ff4ca"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          spacing: {
+            "sm": "12px",
+            "gutter": "24px",
+            "xs": "4px",
+            "base": "8px",
+            "md": "24px",
+            "xl": "80px",
+            "lg": "48px",
+            "container-max": "1280px"
+          },
+          fontFamily: {
+            "sans": ["Hanken Grotesk", "sans-serif"],
+            "headline-xl": ["Hanken Grotesk"],
+            "headline-lg": ["Hanken Grotesk"],
+            "headline-md": ["Hanken Grotesk"],
+            "label-md": ["Hanken Grotesk"],
+            "body-md": ["Hanken Grotesk"],
+            "body-lg": ["Hanken Grotesk"]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      display: inline-block;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased font-body-md text-body-md min-h-screen flex flex-col">
+
+  <!-- TopNavBar -->
+  <header class="w-full sticky top-0 z-50 bg-surface border-b border-outline-variant shadow-sm">
+    <div class="flex justify-between items-center px-md md:px-lg py-sm max-w-container-max mx-auto">
+      <!-- Brand Logo -->
+      <a class="font-headline-md text-headline-md font-bold text-primary tracking-tight flex items-center gap-xs" href="/index.html">
+        <span class="material-symbols-outlined text-[#006948]">local_hospital</span>
+        MEDICARE
+      </a>
+      
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-md">
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary px-2 py-1 rounded transition-all" href="/index.html">Home</a>
+        <a class="font-body-md text-body-md text-primary border-b-2 border-primary pb-1" href="/shop.html">Shop All</a>
+      </nav>
+
+      <!-- Search & Trailing Icons -->
+      <div class="flex items-center space-x-sm text-primary font-body-md text-body-md">
+        <div class="relative hidden sm:block">
+          <span class="material-symbols-outlined absolute left-2 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+          <input id="navbar-search" class="search-input pl-8 pr-sm py-1 bg-surface-container-low border border-outline-variant rounded-lg text-body-md font-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all w-[200px]" placeholder="Search medicine..." type="text"/>
+        </div>
+        <a href="/cart.html" class="p-2 hover:bg-surface-container-low transition-all rounded-full flex items-center justify-center relative">
+          <span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+          <span class="absolute top-0 right-0 bg-primary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center translate-x-1 -translate-y-1 hidden">0</span>
+        </a>
+        <a href="/login.html" class="p-2 hover:bg-surface-container-low transition-all rounded-full flex items-center justify-center">
+          <span class="material-symbols-outlined" data-icon="person">person</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow w-full max-w-container-max mx-auto px-md md:px-lg py-lg md:py-xl">
+    
+    <!-- Page Header -->
+    <div class="flex flex-col md:flex-row justify-between items-baseline mb-lg border-b border-outline-variant pb-md">
+      <div>
+        <h1 class="font-headline-lg text-2xl md:text-3xl font-bold text-on-surface mb-xs">Shop All Pharmacy</h1>
+        <p class="font-body-md text-body-md text-on-surface-variant">Explore our trusted clinical and wellness products.</p>
+      </div>
+      <div class="mt-md md:mt-0 flex items-center gap-sm w-full md:w-auto justify-between md:justify-end">
+        <label class="font-label-md text-label-md text-on-surface-variant hidden sm:inline-block" for="sort-select">Sort by:</label>
+        <select id="sort-select" class="bg-surface-container-lowest border border-outline-variant rounded-lg px-sm py-xs font-body-md text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none">
+          <option value="featured">Featured</option>
+          <option value="price_asc">Price: Low to High</option>
+          <option value="price_desc">Price: High to Low</option>
+          <option value="newest">Newest Arrivals</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-gutter">
+      <!-- Sidebar Filters -->
+      <aside class="w-full md:w-[240px] flex-shrink-0 space-y-lg border-b md:border-b-0 md:border-r border-outline-variant pb-6 md:pb-0 md:pr-6">
+        
+        <!-- Category Filter -->
+        <div>
+          <h3 class="font-bold text-on-surface mb-md text-base">Category</h3>
+          <ul class="space-y-sm" id="category-filter-list">
+            <li>
+              <label class="flex items-center gap-sm cursor-pointer group">
+                <input type="checkbox" value="All Products" checked class="category-checkbox w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary bg-surface-container-lowest checked:bg-primary"/>
+                <span class="font-body-md text-sm text-on-surface group-hover:text-primary transition-colors">All Products</span>
+              </label>
+            </li>
+            <li>
+              <label class="flex items-center gap-sm cursor-pointer group">
+                <input type="checkbox" value="Supplements" class="category-checkbox w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary bg-surface-container-lowest checked:bg-primary"/>
+                <span class="font-body-md text-sm text-on-surface-variant group-hover:text-primary transition-colors">Supplements</span>
+              </label>
+            </li>
+            <li>
+              <label class="flex items-center gap-sm cursor-pointer group">
+                <input type="checkbox" value="Medical Devices" class="category-checkbox w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary bg-surface-container-lowest checked:bg-primary"/>
+                <span class="font-body-md text-sm text-on-surface-variant group-hover:text-primary transition-colors">Medical Devices</span>
+              </label>
+            </li>
+            <li>
+              <label class="flex items-center gap-sm cursor-pointer group">
+                <input type="checkbox" value="Wellness" class="category-checkbox w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary bg-surface-container-lowest checked:bg-primary"/>
+                <span class="font-body-md text-sm text-on-surface-variant group-hover:text-primary transition-colors">Wellness</span>
+              </label>
+            </li>
+            <li>
+              <label class="flex items-center gap-sm cursor-pointer group">
+                <input type="checkbox" value="Prescriptions" class="category-checkbox w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary bg-surface-container-lowest checked:bg-primary"/>
+                <span class="font-body-md text-sm text-on-surface-variant group-hover:text-primary transition-colors">Prescriptions</span>
+              </label>
+            </li>
+            <li>
+              <label class="flex items-center gap-sm cursor-pointer group">
+                <input type="checkbox" value="First Aid" class="category-checkbox w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary bg-surface-container-lowest checked:bg-primary"/>
+                <span class="font-body-md text-sm text-on-surface-variant group-hover:text-primary transition-colors">First Aid</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Price Filter -->
+        <div class="border-t border-outline-variant pt-md">
+          <h3 class="font-bold text-on-surface mb-md text-base">Price Range</h3>
+          <div class="flex items-center gap-2 mb-md">
+            <div class="relative w-full">
+              <span class="absolute left-2 top-1/2 -translate-y-1/2 text-on-surface-variant text-xs">$</span>
+              <input id="price-min" class="w-full pl-5 pr-2 py-1 bg-surface-container-lowest border border-outline-variant rounded-lg text-sm font-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none" placeholder="Min" type="number" min="0"/>
+            </div>
+            <span class="text-on-surface-variant">-</span>
+            <div class="relative w-full">
+              <span class="absolute left-2 top-1/2 -translate-y-1/2 text-on-surface-variant text-xs">$</span>
+              <input id="price-max" class="w-full pl-5 pr-2 py-1 bg-surface-container-lowest border border-outline-variant rounded-lg text-sm font-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none" placeholder="Max" type="number" min="0"/>
+            </div>
+          </div>
+          <button id="apply-price-btn" class="w-full bg-white border border-outline-variant text-on-surface font-semibold text-xs py-2 rounded-lg hover:bg-surface-container-low transition-colors shadow-sm">
+            Apply Filter
+          </button>
+        </div>
+      </aside>
+
+      <!-- Product Grid Section -->
+      <section class="flex-grow">
+        <!-- Grid -->
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+          <!-- Injected dynamically -->
+          <div class="col-span-3 text-center py-8 text-on-surface-variant">Loading medical supplies...</div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-center items-center gap-sm mt-xl pt-lg border-t border-outline-variant">
+          <button class="w-10 h-10 flex items-center justify-center rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors disabled:opacity-50" disabled>
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
+          <button class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-low text-primary font-semibold text-xs transition-colors">1</button>
+          <button class="w-10 h-10 flex items-center justify-center rounded-lg text-on-surface-variant font-semibold text-xs hover:text-primary hover:bg-surface-container-low transition-colors">2</button>
+          <button class="w-10 h-10 flex items-center justify-center rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors">
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full bg-surface border-t border-outline-variant">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-md px-md md:px-lg py-lg max-w-container-max mx-auto">
+      <!-- Brand Column -->
+      <div class="col-span-2 md:col-span-1 flex flex-col items-start space-y-sm">
+        <span class="font-headline-md text-headline-md font-bold text-on-surface flex items-center gap-xs">
+          <span class="material-symbols-outlined text-primary">local_hospital</span>
+          MEDICARE
+        </span>
+        <p class="font-label-md text-label-md text-on-surface-variant text-sm">Providing professional health and wellness products with trust and care.</p>
+      </div>
+      <!-- Links Column 1 -->
+      <div class="flex flex-col space-y-sm font-label-md text-label-md text-sm">
+        <span class="text-on-surface font-semibold mb-xs">Services</span>
+        <a class="text-on-surface-variant hover:text-primary hover:underline transition-colors" href="/shop.html">Pharmacy Services</a>
+        <a class="text-on-surface-variant hover:text-primary hover:underline transition-colors" href="#">Consultations</a>
+      </div>
+      <!-- Links Column 2 -->
+      <div class="flex flex-col space-y-sm font-label-md text-label-md text-sm">
+        <span class="text-on-surface font-semibold mb-xs">Support</span>
+        <a class="text-on-surface-variant hover:text-primary hover:underline transition-colors" href="/cart.html">Shipping & Returns</a>
+        <a class="text-on-surface-variant hover:text-primary hover:underline transition-colors" href="#">Help Center</a>
+      </div>
+      <!-- Links Column 3 -->
+      <div class="flex flex-col space-y-sm font-label-md text-label-md text-sm">
+        <span class="text-on-surface font-semibold mb-xs">Legal</span>
+        <a class="text-on-surface-variant hover:text-primary hover:underline transition-colors" href="#">Privacy Policy</a>
+        <a class="text-on-surface-variant hover:text-primary hover:underline transition-colors" href="#">Terms of Service</a>
+      </div>
+    </div>
+    <div class="border-t border-outline-variant py-md text-center text-on-surface-variant text-xs font-label-md">
+      <span>© 2026 MEDICARE Pharmacy. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    // Variables to track filters
+    let selectedCategories = [];
+    let priceMin = '';
+    let priceMax = '';
+    let sortOption = 'featured';
+    let searchQuery = '';
+
+    // Load filters from URL parameters on start
+    function parseUrlParams() {
+      const params = new URLSearchParams(window.location.search);
+      
+      // Search
+      searchQuery = params.get('search') || '';
+      const searchInputs = document.querySelectorAll('.search-input');
+      searchInputs.forEach(input => input.value = searchQuery);
+      
+      // Category
+      const catParam = params.get('category');
+      if (catParam) {
+        selectedCategories = catParam.split(',');
+        // Uncheck all, check the specific ones
+        const checkboxes = document.querySelectorAll('.category-checkbox');
+        checkboxes.forEach(box => {
+          if (selectedCategories.includes(box.value)) {
+            box.checked = true;
+          } else {
+            box.checked = false;
+          }
+        });
+        // Check if "All Products" is selected
+        const allBox = document.querySelector('.category-checkbox[value="All Products"]');
+        if (selectedCategories.length > 0 && !selectedCategories.includes('All Products')) {
+          allBox.checked = false;
+        }
+      }
+    }
+
+    // Fetch products based on current filter state
+    async function fetchProducts() {
+      const grid = document.getElementById('products-grid');
+      grid.innerHTML = '<div class="col-span-3 text-center py-8 text-on-surface-variant">Loading matching medical supplies...</div>';
+      
+      try {
+        const queryParams = new URLSearchParams();
+        if (searchQuery) queryParams.set('search', searchQuery);
+        
+        if (selectedCategories.length > 0 && !selectedCategories.includes('All Products')) {
+          queryParams.set('category', selectedCategories.join(','));
+        }
+        
+        if (priceMin) queryParams.set('minPrice', priceMin);
+        if (priceMax) queryParams.set('maxPrice', priceMax);
+        if (sortOption) queryParams.set('sort', sortOption);
+
+        const response = await fetch(`/api/products?${queryParams.toString()}`);
+        if (!response.ok) throw new Error('API Error');
+        const products = await response.json();
+        
+        grid.innerHTML = '';
+        
+        if (products.length === 0) {
+          grid.innerHTML = '<div class="col-span-3 text-center py-12 text-on-surface-variant"><span class="material-symbols-outlined text-4xl block mb-2">search_off</span>No products match your filters. Try adjusting them.</div>';
+          return;
+        }
+
+        products.forEach(product => {
+          const originalPriceHtml = product.originalPrice 
+            ? `<span class="text-xs text-on-surface-variant line-through ml-2 font-medium">${formatCurrency(product.originalPrice)}</span>` 
+            : '';
+          
+          const badgeHtml = product.badge
+            ? `<span class="absolute top-3 left-3 bg-[#006948] text-white font-semibold text-[10px] px-2 py-0.5 rounded-full z-10 shadow-sm">${product.badge}</span>`
+            : '';
+
+          const card = document.createElement('div');
+          card.className = 'group flex flex-col bg-white border border-outline-variant rounded-lg overflow-hidden hover:shadow-[0_4px_20px_rgba(0,0,0,0.05)] transition-all duration-300 relative';
+          card.innerHTML = `
+            <div class="relative aspect-[4/5] bg-surface-container-low overflow-hidden cursor-pointer" onclick="window.location.href='/product.html?id=${product.id}'">
+              <img alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="${product.image}"/>
+              ${badgeHtml}
+              <!-- Hover Action -->
+              <div class="absolute bottom-3 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 w-[calc(100%-24px)] z-20">
+                <button class="quick-add-btn w-full bg-primary text-white font-semibold text-xs py-2 rounded-lg hover:bg-surface-tint shadow-md transition-colors">Add to Cart</button>
+              </div>
+            </div>
+            <div class="p-md flex flex-col flex-grow justify-between">
+              <div class="cursor-pointer" onclick="window.location.href='/product.html?id=${product.id}'">
+                <span class="text-xs text-on-surface-variant uppercase tracking-wider font-semibold">${product.category}</span>
+                <h3 class="font-bold text-on-surface mb-sm line-clamp-1 hover:text-primary transition-colors text-sm">${product.name}</h3>
+                <div class="flex items-center gap-1 mb-2">
+                  <span class="material-symbols-outlined text-[14px] text-amber-500 fill-[1]" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="text-xs font-semibold text-on-surface">${product.rating}</span>
+                  <span class="text-xs text-on-surface-variant">(${product.reviewsCount})</span>
+                </div>
+              </div>
+              <div class="flex items-center">
+                <span class="font-bold text-primary">${formatCurrency(product.price)}</span>
+                ${originalPriceHtml}
+              </div>
+            </div>
+          `;
+          
+          card.querySelector('.quick-add-btn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            addToCart(product, 1);
+          });
+
+          grid.appendChild(card);
+        });
+
+      } catch (err) {
+        console.error('Error fetching products:', err);
+        grid.innerHTML = '<div class="col-span-3 text-center py-8 text-red-500">Failed to load medicines. Make sure server is running.</div>';
+      }
+    }
+
+    // Set up category checkbox listeners
+    function setupCheckboxListeners() {
+      const checkboxes = document.querySelectorAll('.category-checkbox');
+      const allCheckbox = document.querySelector('.category-checkbox[value="All Products"]');
+      
+      checkboxes.forEach(box => {
+        box.addEventListener('change', () => {
+          if (box.value === 'All Products') {
+            if (box.checked) {
+              // Uncheck all others
+              checkboxes.forEach(other => {
+                if (other !== allCheckbox) other.checked = false;
+              });
+              selectedCategories = [];
+            }
+          } else {
+            // If checking a specific category, uncheck "All Products"
+            if (box.checked) {
+              allCheckbox.checked = false;
+            }
+            
+            // Build selected categories list
+            selectedCategories = Array.from(checkboxes)
+              .filter(cb => cb.checked && cb.value !== 'All Products')
+              .map(cb => cb.value);
+              
+            // If nothing checked, default back to All Products checked
+            if (selectedCategories.length === 0) {
+              allCheckbox.checked = true;
+            }
+          }
+          
+          // Sync URL search params
+          const url = new URL(window.location);
+          if (selectedCategories.length > 0) {
+            url.searchParams.set('category', selectedCategories.join(','));
+          } else {
+            url.searchParams.delete('category');
+          }
+          window.history.pushState({}, '', url);
+          
+          fetchProducts();
+        });
+      });
+    }
+
+    // Set up price filter listeners
+    document.getElementById('apply-price-btn').addEventListener('click', () => {
+      priceMin = document.getElementById('price-min').value;
+      priceMax = document.getElementById('price-max').value;
+      fetchProducts();
+    });
+
+    // Set up sorting listener
+    document.getElementById('sort-select').addEventListener('change', (e) => {
+      sortOption = e.target.value;
+      fetchProducts();
+    });
+
+    // Support search sync from navigation input
+    window.addEventListener('popstate', () => {
+      parseUrlParams();
+      fetchProducts();
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      parseUrlParams();
+      setupCheckboxListeners();
+      fetchProducts();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>MEDICARE - Medical Product Detail</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <!-- Material Symbols Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "outline": "#6f7a72",
+            "on-secondary": "#ffffff",
+            "inverse-surface": "#2e3132",
+            "secondary": "#575e70",
+            "outline-variant": "#bec9c1",
+            "inverse-primary": "#83d7ae",
+            "error": "#ba1a1a",
+            "on-primary-fixed": "#002114",
+            "on-primary-container": "#91e5bc",
+            "on-secondary-fixed-variant": "#404758",
+            "tertiary-fixed-dim": "#c0c6d7",
+            "on-surface-variant": "#3f4943",
+            "surface-container-low": "#f3f4f5",
+            "mist-gray": "#d9dadb",
+            "tertiary-fixed": "#dce2f3",
+            "on-secondary-container": "#5d6476",
+            "on-tertiary-fixed": "#151c28",
+            "on-secondary-fixed": "#141b2b",
+            "surface-container": "#edeeef",
+            "surface-dim": "#d9dadb",
+            "tertiary-container": "#555c6a",
+            "sale-red": "#ba1a1a",
+            "on-primary-fixed-variant": "#005237",
+            "tertiary": "#3e4552",
+            "on-tertiary": "#ffffff",
+            "surface": "#f8f9fa",
+            "surface-bright": "#f8f9fa",
+            "on-primary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "emerald-green": "#006948",
+            "success-container": "#f5fff7",
+            "on-error-container": "#93000a",
+            "onyx-black": "#191c1d",
+            "primary-fixed-dim": "#83d7ae",
+            "surface-tint": "#076c4b",
+            "on-tertiary-container": "#ced5e5",
+            "surface-container-highest": "#e1e3e4",
+            "inverse-on-surface": "#f0f1f2",
+            "error-container": "#ffdad6",
+            "secondary-fixed": "#dbe2f8",
+            "on-surface": "#191c1d",
+            "on-tertiary-fixed-variant": "#404754",
+            "primary": "#004f35",
+            "secondary-container": "#dbe2f8",
+            "surface-variant": "#e1e3e4",
+            "secondary-fixed-dim": "#bfc6db",
+            "on-error": "#ffffff",
+            "primary-container": "#006948",
+            "on-background": "#191c1d",
+            "surface-container-high": "#e7e8e9",
+            "background": "#f8f9fa",
+            "primary-fixed": "#9ff4ca"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          spacing: {
+            "sm": "12px",
+            "gutter": "24px",
+            "xs": "4px",
+            "base": "8px",
+            "md": "24px",
+            "xl": "80px",
+            "lg": "48px",
+            "container-max": "1280px"
+          },
+          fontFamily: {
+            "sans": ["Hanken Grotesk", "sans-serif"],
+            "headline-xl": ["Hanken Grotesk"],
+            "headline-lg": ["Hanken Grotesk"],
+            "headline-md": ["Hanken Grotesk"],
+            "label-md": ["Hanken Grotesk"],
+            "body-md": ["Hanken Grotesk"],
+            "body-lg": ["Hanken Grotesk"]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      display: inline-block;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    .hide-scroll::-webkit-scrollbar { display: none; }
+    .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col">
+
+  <!-- TopNavBar -->
+  <header class="w-full sticky top-0 z-50 bg-surface border-b border-outline-variant shadow-sm">
+    <div class="flex justify-between items-center px-md md:px-lg py-sm max-w-container-max mx-auto">
+      <!-- Brand Logo -->
+      <a class="font-headline-md text-headline-md font-bold text-primary tracking-tight flex items-center gap-xs" href="/index.html">
+        <span class="material-symbols-outlined text-[#006948]">local_hospital</span>
+        MEDICARE
+      </a>
+      
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-md">
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary px-2 py-1 rounded transition-all" href="/index.html">Home</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary px-2 py-1 rounded transition-all" href="/shop.html">Shop All</a>
+      </nav>
+
+      <!-- Search & Trailing Icons -->
+      <div class="flex items-center space-x-sm text-primary font-body-md text-body-md">
+        <div class="relative hidden sm:block">
+          <span class="material-symbols-outlined absolute left-2 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+          <input class="search-input pl-8 pr-sm py-1 bg-surface-container-low border border-outline-variant rounded-lg text-body-md font-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all w-[200px]" placeholder="Search medicine..." type="text"/>
+        </div>
+        <a href="/cart.html" class="p-2 hover:bg-surface-container-low transition-all rounded-full flex items-center justify-center relative">
+          <span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+          <span class="absolute top-0 right-0 bg-primary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center translate-x-1 -translate-y-1 hidden">0</span>
+        </a>
+        <a href="/login.html" class="p-2 hover:bg-surface-container-low transition-all rounded-full flex items-center justify-center">
+          <span class="material-symbols-outlined" data-icon="person">person</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Canvas -->
+  <main id="product-detail-container" class="flex-grow w-full max-w-container-max mx-auto px-4 md:px-lg py-lg md:py-xl">
+    <!-- Content loaded dynamically. Showing standard loading structure: -->
+    <div class="text-center py-20 text-on-surface-variant">Loading medicine details...</div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full bg-surface border-t border-outline-variant">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-md px-md md:px-lg py-lg max-w-container-max mx-auto">
+      <!-- Brand Column -->
+      <div class="col-span-2 md:col-span-1 flex flex-col items-start space-y-sm">
+        <span class="font-headline-md text-headline-md font-bold text-on-surface flex items-center gap-xs">
+          <span class="material-symbols-outlined text-primary">local_hospital</span>
+          MEDICARE
+        </span>
+        <p class="font-label-md text-label-md text-on-surface-variant text-sm">Providing professional health and wellness products with trust and care.</p>
+      </div>
+      <!-- Links Column 1 -->
+      <div class="flex flex-col space-y-sm font-label-md text-label-md text-sm">
+        <span class="text-on-surface font-semibold mb-xs">Services</span>
+        <a class="text-on-surface-variant hover:text-primary hover:underline transition-colors" href="/shop.html">Pharmacy Services</a>
+        <a class="text-on-surface-variant hover:text-primary hover:underline transition-colors" href="#">Consultations</a>
+      </div>
+      <!-- Links Column 2 -->
+      <div class="flex flex-col space-y-sm font-label-md text-label-md text-sm">
+        <span class="text-on-surface font-semibold mb-xs">Support</span>
+        <a class="text-on-surface-variant hover:text-primary hover:underline transition-colors" href="/cart.html">Shipping & Returns</a>
+        <a class="text-on-surface-variant hover:text-primary hover:underline transition-colors" href="#">Help Center</a>
+      </div>
+      <!-- Links Column 3 -->
+      <div class="flex flex-col space-y-sm font-label-md text-label-md text-sm">
+        <span class="text-on-surface font-semibold mb-xs">Legal</span>
+        <a class="text-on-surface-variant hover:text-primary hover:underline transition-colors" href="#">Privacy Policy</a>
+        <a class="text-on-surface-variant hover:text-primary hover:underline transition-colors" href="#">Terms of Service</a>
+      </div>
+    </div>
+    <div class="border-t border-outline-variant py-md text-center text-on-surface-variant text-xs font-label-md">
+      <span>© 2026 MEDICARE Pharmacy. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    let currentProduct = null;
+    let selectedSize = 'Standard';
+
+    // Parse product ID from url
+    function getProductId() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('id') || 'prod-6'; // default to blood pressure monitor
+    }
+
+    async function loadProductDetails() {
+      const productId = getProductId();
+      const container = document.getElementById('product-detail-container');
+      
+      try {
+        // Fetch Product Details
+        const prodResponse = await fetch(`/api/products/${productId}`);
+        if (!prodResponse.ok) {
+          container.innerHTML = `<div class="text-center py-20 text-red-500 font-semibold"><span class="material-symbols-outlined text-4xl block mb-2">error</span>Product not found. <a class="underline" href="/shop.html">Return to Shop</a></div>`;
+          return;
+        }
+        currentProduct = await prodResponse.json();
+
+        // Fetch Reviews
+        const reviewsResponse = await fetch(`/api/reviews/${productId}`);
+        const reviews = reviewsResponse.ok ? await reviewsResponse.json() : [];
+
+        // Build HTML
+        const badge1Html = currentProduct.clinicallyValidated 
+          ? `<span class="bg-primary text-white font-semibold text-xs px-3 py-1 rounded-full shadow-sm">Clinically Validated</span>` 
+          : '';
+        const badge2Html = currentProduct.fsaHsaEligible 
+          ? `<span class="bg-surface-container-high text-on-surface font-semibold text-xs px-3 py-1 rounded-full shadow-sm border border-outline-variant">FSA/HSA Eligible</span>` 
+          : '';
+
+        const discountHtml = currentProduct.originalPrice 
+          ? `<span class="text-sm text-on-surface-variant line-through font-semibold ml-2">${formatCurrency(currentProduct.originalPrice)}</span>` 
+          : '';
+
+        // Generate specifications list
+        const specsHtml = currentProduct.specifications.map(spec => `<li>${spec}</li>`).join('');
+
+        // Generate review cards list
+        let reviewCardsHtml = '<div class="text-on-surface-variant text-sm py-4">No reviews yet for this product. Be the first to write one!</div>';
+        if (reviews.length > 0) {
+          reviewCardsHtml = reviews.map(rev => {
+            const stars = Array.from({length: 5}, (_, idx) => {
+              const filled = idx < rev.rating;
+              return `<span class="material-symbols-outlined text-[16px] text-amber-500 fill-[1]">${filled ? 'star' : 'star_border'}</span>`;
+            }).join('');
+
+            const dateStr = new Date(rev.date).toLocaleDateString('en-US', {
+              year: 'numeric', month: 'long', day: 'numeric'
+            });
+
+            return `
+              <div class="border-b border-outline-variant pb-6 mb-6">
+                <div class="flex justify-between items-start mb-2">
+                  <div>
+                    <div class="flex items-center gap-2 mb-1">
+                      <span class="font-bold text-on-surface text-sm">${rev.reviewerName}</span>
+                      ${rev.verifiedBuyer ? `
+                        <span class="flex items-center text-[10px] text-primary bg-primary-container px-2 py-0.5 rounded-full font-semibold">
+                          <span class="material-symbols-outlined text-[12px] mr-0.5" style="font-variation-settings: 'FILL' 1;">verified</span>
+                          Verified Buyer
+                        </span>
+                      ` : ''}
+                    </div>
+                    <div class="flex text-primary">
+                      ${stars}
+                    </div>
+                  </div>
+                  <span class="text-xs text-on-surface-variant">${dateStr}</span>
+                </div>
+                <h4 class="font-bold text-on-surface text-sm mb-1">${rev.title}</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed">${rev.comment}</p>
+              </div>
+            `;
+          }).join('');
+        }
+
+        // Calculate rating percentages for bars
+        const totalReviewsCount = reviews.length;
+        const starCounts = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
+        reviews.forEach(r => {
+          if (starCounts[r.rating] !== undefined) starCounts[r.rating]++;
+        });
+
+        const barHtml = [5, 4, 3, 2, 1].map(num => {
+          const count = starCounts[num];
+          const pct = totalReviewsCount > 0 ? Math.round((count / totalReviewsCount) * 100) : 0;
+          return `
+            <div class="flex items-center gap-2 text-xs">
+              <span class="w-3 text-on-surface-variant font-medium">${num}</span>
+              <span class="material-symbols-outlined text-[12px] text-amber-500 fill-[1]">star</span>
+              <div class="flex-grow h-2 bg-surface-container-high rounded-full overflow-hidden">
+                <div class="h-full bg-primary" style="width: ${pct}%"></div>
+              </div>
+              <span class="w-8 text-right text-on-surface-variant">${count}</span>
+            </div>
+          `;
+        }).join('');
+
+        container.innerHTML = `
+          <!-- Breadcrumbs -->
+          <div class="mb-md text-on-surface-variant text-xs flex items-center gap-1">
+            <a class="hover:text-primary transition-colors" href="/index.html">Home</a>
+            <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+            <a class="hover:text-primary transition-colors" href="/shop.html">Shop</a>
+            <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+            <a class="hover:text-primary transition-colors" href="/shop.html?category=${currentProduct.category}">${currentProduct.category}</a>
+            <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+            <span class="text-on-surface font-semibold truncate max-w-[200px]">${currentProduct.name}</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+            <!-- Product Gallery (Left) -->
+            <div class="col-span-1 md:col-span-7 flex flex-col md:flex-row-reverse gap-4">
+              <!-- Main Image -->
+              <div class="flex-grow bg-white rounded-lg overflow-hidden border border-outline-variant relative aspect-[4/5] flex items-center justify-center p-8 shadow-sm">
+                <img id="main-product-image" alt="${currentProduct.name}" class="w-full h-full object-contain object-center" src="${currentProduct.image}"/>
+                <div class="absolute top-4 left-4 flex flex-col gap-2">
+                  ${badge1Html}
+                  ${badge2Html}
+                </div>
+              </div>
+              <!-- Thumbnails -->
+              <div class="flex flex-row md:flex-col gap-3 overflow-x-auto md:overflow-visible hide-scroll md:w-24 shrink-0">
+                <button class="w-16 h-20 md:w-full md:h-24 bg-white p-2 rounded-lg border-2 border-primary overflow-hidden shrink-0 transition-all flex items-center justify-center shadow-sm">
+                  <img alt="Thumbnail 1" class="w-full h-full object-contain" src="${currentProduct.image}"/>
+                </button>
+                <button class="w-16 h-20 md:w-full md:h-24 bg-white p-2 rounded-lg border border-outline-variant overflow-hidden shrink-0 hover:border-outline transition-all opacity-80 flex items-center justify-center shadow-sm">
+                  <img alt="Thumbnail 2" class="w-full h-full object-contain opacity-75" src="${currentProduct.image}"/>
+                </button>
+              </div>
+            </div>
+
+            <!-- Product Info (Right) -->
+            <div class="col-span-1 md:col-span-5 flex flex-col pt-md md:pt-0 md:pl-lg">
+              <div class="mb-6 border-b border-outline-variant pb-6">
+                <span class="text-xs text-primary font-bold uppercase tracking-wider">${currentProduct.category}</span>
+                <h1 class="font-bold text-2xl md:text-3xl text-on-surface mb-2 leading-tight mt-1">${currentProduct.name}</h1>
+                <div class="flex items-center gap-4 mb-4">
+                  <div class="flex items-center text-amber-500">
+                    <span class="material-symbols-outlined fill-[1]">star</span>
+                    <span class="ml-1 font-semibold text-sm text-on-surface">${currentProduct.rating}</span>
+                    <span class="ml-1 text-xs text-on-surface-variant font-medium">(${currentProduct.reviewsCount} Reviews)</span>
+                  </div>
+                </div>
+                <div class="flex items-baseline gap-2 mb-4">
+                  <span class="text-2xl font-bold text-primary">${formatCurrency(currentProduct.price)}</span>
+                  ${discountHtml}
+                </div>
+                <p class="font-body-md text-sm text-on-surface-variant leading-relaxed">
+                  ${currentProduct.description}
+                </p>
+              </div>
+
+              <!-- Selectors (Dosage / Size Options) -->
+              <div class="mb-6 space-y-4">
+                <div>
+                  <div class="flex justify-between items-center mb-2">
+                    <h3 class="font-bold text-xs text-on-surface uppercase tracking-wider">Cuff/Pack Size</h3>
+                    <a class="text-primary text-xs hover:underline font-semibold" href="#">Size Guide</a>
+                  </div>
+                  <div class="flex gap-3">
+                    <button id="size-btn-standard" onclick="selectSize('Standard')" class="px-4 py-2 border border-primary bg-primary-container text-on-primary-container font-semibold text-xs rounded-lg transition-all shadow-sm">Standard</button>
+                    <button id="size-btn-large" onclick="selectSize('Large')" class="px-4 py-2 border border-outline-variant bg-white text-on-surface-variant hover:border-outline font-semibold text-xs rounded-lg transition-all shadow-sm">Large</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Actions -->
+              <div class="flex flex-col gap-3 mb-6">
+                <div class="flex gap-3">
+                  <!-- Quantity -->
+                  <div class="flex items-center border border-outline-variant rounded-lg bg-white shadow-sm">
+                    <button onclick="changeDetailQty(-1)" class="px-3 py-2 text-on-surface-variant hover:text-primary transition-colors">
+                      <span class="material-symbols-outlined text-[18px]">remove</span>
+                    </button>
+                    <input id="detail-quantity" class="w-10 text-center border-none bg-transparent font-semibold text-sm text-on-surface p-0 focus:ring-0" type="text" value="1" readonly/>
+                    <button onclick="changeDetailQty(1)" class="px-3 py-2 text-on-surface-variant hover:text-primary transition-colors">
+                      <span class="material-symbols-outlined text-[18px]">add</span>
+                    </button>
+                  </div>
+                  <!-- Add to Cart -->
+                  <button id="add-to-cart-btn" class="flex-grow bg-primary text-white font-bold text-sm py-3 rounded-lg hover:bg-surface-tint shadow-md transition-colors flex justify-center items-center gap-2">
+                    <span class="material-symbols-outlined">medical_services</span>
+                    Add to Cart
+                  </button>
+                </div>
+                <button class="w-full bg-white border border-outline-variant text-on-surface font-semibold text-xs py-3 rounded-lg hover:bg-surface-container-low transition-all shadow-sm flex justify-center items-center gap-2">
+                  <span class="material-symbols-outlined">favorite_border</span>
+                  Save to Health Profile
+                </button>
+              </div>
+
+              <!-- Accordions (Specifications/Shipping) -->
+              <div class="border-t border-outline-variant divide-y divide-outline-variant">
+                <details class="group py-4" open>
+                  <summary class="flex justify-between items-center font-bold text-xs text-on-surface cursor-pointer list-none uppercase tracking-wider outline-none">
+                    Technical Specifications
+                    <span class="transition group-open:rotate-180">
+                      <span class="material-symbols-outlined text-surface-dim">expand_more</span>
+                    </span>
+                  </summary>
+                  <div class="text-on-surface-variant text-sm mt-3 pl-3">
+                    <ul class="list-disc list-inside space-y-1.5 leading-relaxed">
+                      ${specsHtml || '<li>Clinical grade medicine / supply</li><li>Verified batch testing</li>'}
+                    </ul>
+                  </div>
+                </details>
+                <details class="group py-4">
+                  <summary class="flex justify-between items-center font-bold text-xs text-on-surface cursor-pointer list-none uppercase tracking-wider outline-none">
+                    Shipping & Returns
+                    <span class="transition group-open:rotate-180">
+                      <span class="material-symbols-outlined text-surface-dim">expand_more</span>
+                    </span>
+                  </summary>
+                  <div class="text-on-surface-variant text-sm mt-3 pl-3 leading-relaxed">
+                    <p class="mb-2">Free expedited shipping on orders over $50. Standard delivery typically takes 2-3 business days.</p>
+                    <p>Returns accepted within 30 days of delivery. For safety reasons, prescription and sealed health items must be returned in unopened, original packaging unless defective.</p>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <!-- Customer Reviews Section -->
+            <div class="col-span-1 md:col-span-12 mt-12 pt-12 border-t border-outline-variant">
+              <h2 class="font-bold text-xl text-on-surface mb-6">Customer Reviews</h2>
+              <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                
+                <!-- Review Summary -->
+                <div class="md:col-span-4 lg:col-span-3">
+                  <div class="flex items-center gap-4 mb-4">
+                    <span class="text-4xl font-bold text-on-surface">${currentProduct.rating}</span>
+                    <div class="flex flex-col">
+                      <div class="flex text-amber-500">
+                        <span class="material-symbols-outlined fill-[1]">star</span>
+                      </div>
+                      <span class="text-xs text-on-surface-variant font-semibold mt-1">Based on ${currentProduct.reviewsCount} reviews</span>
+                    </div>
+                  </div>
+                  <!-- Rating Bars -->
+                  <div class="space-y-2 mb-6">
+                    ${barHtml}
+                  </div>
+                  <button id="toggle-review-form-btn" class="w-full bg-white border border-outline text-on-surface font-semibold text-xs py-2.5 rounded-lg hover:bg-surface-container-low transition-colors shadow-sm">
+                    Write a Review
+                  </button>
+                </div>
+
+                <!-- Review List / Form -->
+                <div class="md:col-span-8 lg:col-span-9 space-y-6">
+                  
+                  <!-- Write Review Form (Hidden initially) -->
+                  <div id="write-review-form-container" class="hidden border border-outline-variant p-lg rounded-xl bg-surface-container-lowest shadow-sm mb-6">
+                    <h3 class="font-bold text-on-surface text-base mb-sm">Write a Review</h3>
+                    <form id="new-review-form" class="space-y-4">
+                      <div class="grid grid-cols-1 sm:grid-cols-2 gap-md">
+                        <div>
+                          <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-1" for="rev-name">Your Name</label>
+                          <input type="text" id="rev-name" required class="w-full rounded-lg border border-outline-variant bg-surface px-3 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none" placeholder="e.g. John Doe"/>
+                        </div>
+                        <div>
+                          <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-1" for="rev-rating">Rating</label>
+                          <select id="rev-rating" required class="w-full rounded-lg border border-outline-variant bg-surface px-3 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none">
+                            <option value="5">5 Stars (Excellent)</option>
+                            <option value="4">4 Stars (Good)</option>
+                            <option value="3">3 Stars (Average)</option>
+                            <option value="2">2 Stars (Poor)</option>
+                            <option value="1">1 Star (Very Poor)</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div>
+                        <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-1" for="rev-title">Review Title</label>
+                        <input type="text" id="rev-title" required class="w-full rounded-lg border border-outline-variant bg-surface px-3 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none" placeholder="e.g. Highly effective!"/>
+                      </div>
+                      <div>
+                        <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-1" for="rev-comment">Review Description</label>
+                        <textarea id="rev-comment" required rows="4" class="w-full rounded-lg border border-outline-variant bg-surface px-3 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none" placeholder="Tell us about your experience with this medical supply..."></textarea>
+                      </div>
+                      <div class="flex gap-3 justify-end">
+                        <button type="button" id="cancel-review-btn" class="bg-white border border-outline-variant text-on-surface-variant font-semibold text-xs px-4 py-2 rounded-lg hover:bg-surface-container-low transition-colors">Cancel</button>
+                        <button type="submit" class="bg-primary text-white font-bold text-xs px-4 py-2 rounded-lg hover:bg-surface-tint shadow-md transition-colors">Submit Review</button>
+                      </div>
+                    </form>
+                  </div>
+
+                  <!-- Reviews Listing -->
+                  <div id="reviews-list-container">
+                    ${reviewCardsHtml}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        `;
+
+        // Attach dynamic event listeners
+        document.getElementById('add-to-cart-btn').addEventListener('click', () => {
+          const qty = parseInt(document.getElementById('detail-quantity').value) || 1;
+          addToCart(currentProduct, qty, selectedSize);
+        });
+
+        // Review Form togglers
+        const formContainer = document.getElementById('write-review-form-container');
+        document.getElementById('toggle-review-form-btn').addEventListener('click', () => {
+          formContainer.classList.toggle('hidden');
+        });
+        document.getElementById('cancel-review-btn').addEventListener('click', () => {
+          formContainer.classList.add('hidden');
+        });
+
+        // Submit Review handler
+        document.getElementById('new-review-form').addEventListener('submit', handleReviewSubmit);
+
+      } catch (err) {
+        console.error('Error loading product detail:', err);
+        container.innerHTML = `<div class="text-center py-20 text-red-500 font-semibold">Failed to fetch product data. Make sure the backend server is running.</div>`;
+      }
+    }
+
+    // Toggle Sizes
+    function selectSize(size) {
+      selectedSize = size;
+      const stdBtn = document.getElementById('size-btn-standard');
+      const lrgBtn = document.getElementById('size-btn-large');
+      
+      if (size === 'Standard') {
+        stdBtn.className = 'px-4 py-2 border border-primary bg-primary-container text-on-primary-container font-semibold text-xs rounded-lg transition-all shadow-sm';
+        lrgBtn.className = 'px-4 py-2 border border-outline-variant bg-white text-on-surface-variant hover:border-outline font-semibold text-xs rounded-lg transition-all shadow-sm';
+      } else {
+        lrgBtn.className = 'px-4 py-2 border border-primary bg-primary-container text-on-primary-container font-semibold text-xs rounded-lg transition-all shadow-sm';
+        stdBtn.className = 'px-4 py-2 border border-outline-variant bg-white text-on-surface-variant hover:border-outline font-semibold text-xs rounded-lg transition-all shadow-sm';
+      }
+    }
+
+    // Change details quantity
+    function changeDetailQty(delta) {
+      const qtyInput = document.getElementById('detail-quantity');
+      let currentVal = parseInt(qtyInput.value) || 1;
+      currentVal += delta;
+      if (currentVal < 1) currentVal = 1;
+      qtyInput.value = currentVal;
+    }
+
+    // Handle Review Submit
+    async function handleReviewSubmit(e) {
+      e.preventDefault();
+      
+      const productId = getProductId();
+      const reviewerName = document.getElementById('rev-name').value;
+      const rating = document.getElementById('rev-rating').value;
+      const title = document.getElementById('rev-title').value;
+      const comment = document.getElementById('rev-comment').value;
+
+      try {
+        const response = await fetch('/api/reviews', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            productId,
+            reviewerName,
+            rating,
+            title,
+            comment
+          })
+        });
+
+        if (!response.ok) {
+          const errData = await response.json();
+          alert(errData.error || 'Failed to submit review');
+          return;
+        }
+
+        showToast('Review submitted successfully!');
+        
+        // Reset form and hide container
+        document.getElementById('new-review-form').reset();
+        document.getElementById('write-review-form-container').classList.add('hidden');
+        
+        // Reload details to display updated reviews immediately
+        loadProductDetails();
+      } catch (err) {
+        console.error('Error posting review:', err);
+        alert('Error submitting review.');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadProductDetails);
+  </script>
+</body>
+</html>
