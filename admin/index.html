@@ -254,7 +254,7 @@
       const container = document.getElementById('inventory-list-container');
       
       try {
-        const response = await fetch('/api/products');
+        const response = await apiFetch('/api/products');
         if (!response.ok) throw new Error('API Fail');
         const products = await response.json();
         
@@ -313,7 +313,7 @@
       const fsaHsaEligible = document.getElementById('prod-fsa-hsa').checked;
 
       try {
-        const response = await fetch('/api/products', {
+        const response = await apiFetch('/api/products', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -358,7 +358,7 @@
       }
 
       try {
-        const response = await fetch(`/api/products/${productId}`, {
+        const response = await apiFetch(`/api/products/${productId}`, {
           method: 'DELETE'
         });
 

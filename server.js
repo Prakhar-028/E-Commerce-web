@@ -7,7 +7,7 @@ const db = require('./database');
 // ==========================================
 const customerApp = express();
 customerApp.use(express.json());
-customerApp.use(express.static(path.join(__dirname, 'public')));
+customerApp.use(express.static(__dirname));
 
 // Storefront API: Get products (with filters & search)
 customerApp.get('/api/products', (req, res) => {
@@ -130,7 +130,7 @@ customerApp.post('/api/reviews', (req, res) => {
 // Fallback to customer index.html (SPA structure)
 customerApp.get('*', (req, res, next) => {
   if (req.path.startsWith('/api')) return next();
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 

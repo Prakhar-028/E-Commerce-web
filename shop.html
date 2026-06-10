@@ -118,15 +118,15 @@
   <header class="w-full sticky top-0 z-50 bg-surface border-b border-outline-variant shadow-sm">
     <div class="flex justify-between items-center px-md md:px-lg py-sm max-w-container-max mx-auto">
       <!-- Brand Logo -->
-      <a class="font-headline-md text-headline-md font-bold text-primary tracking-tight flex items-center gap-xs" href="/index.html">
+      <a class="font-headline-md text-headline-md font-bold text-primary tracking-tight flex items-center gap-xs" href="index.html">
         <span class="material-symbols-outlined text-[#006948]">local_hospital</span>
         MEDICARE
       </a>
       
       <!-- Navigation Links -->
       <nav class="hidden md:flex items-center space-x-md">
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary px-2 py-1 rounded transition-all" href="/index.html">Home</a>
-        <a class="font-body-md text-body-md text-primary border-b-2 border-primary pb-1" href="/shop.html">Shop All</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary px-2 py-1 rounded transition-all" href="index.html">Home</a>
+        <a class="font-body-md text-body-md text-primary border-b-2 border-primary pb-1" href="shop.html">Shop All</a>
       </nav>
 
       <!-- Search & Trailing Icons -->
@@ -135,11 +135,11 @@
           <span class="material-symbols-outlined absolute left-2 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
           <input id="navbar-search" class="search-input pl-8 pr-sm py-1 bg-surface-container-low border border-outline-variant rounded-lg text-body-md font-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all w-[200px]" placeholder="Search medicine..." type="text"/>
         </div>
-        <a href="/cart.html" class="p-2 hover:bg-surface-container-low transition-all rounded-full flex items-center justify-center relative">
+        <a href="cart.html" class="p-2 hover:bg-surface-container-low transition-all rounded-full flex items-center justify-center relative">
           <span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
           <span class="absolute top-0 right-0 bg-primary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center translate-x-1 -translate-y-1 hidden">0</span>
         </a>
-        <a href="/login.html" class="p-2 hover:bg-surface-container-low transition-all rounded-full flex items-center justify-center">
+        <a href="login.html" class="p-2 hover:bg-surface-container-low transition-all rounded-full flex items-center justify-center">
           <span class="material-symbols-outlined" data-icon="person">person</span>
         </a>
       </div>
@@ -270,13 +270,13 @@
       <!-- Links Column 1 -->
       <div class="flex flex-col space-y-sm font-label-md text-label-md text-sm">
         <span class="text-on-surface font-semibold mb-xs">Services</span>
-        <a class="text-on-surface-variant hover:text-primary hover:underline transition-colors" href="/shop.html">Pharmacy Services</a>
+        <a class="text-on-surface-variant hover:text-primary hover:underline transition-colors" href="shop.html">Pharmacy Services</a>
         <a class="text-on-surface-variant hover:text-primary hover:underline transition-colors" href="#">Consultations</a>
       </div>
       <!-- Links Column 2 -->
       <div class="flex flex-col space-y-sm font-label-md text-label-md text-sm">
         <span class="text-on-surface font-semibold mb-xs">Support</span>
-        <a class="text-on-surface-variant hover:text-primary hover:underline transition-colors" href="/cart.html">Shipping & Returns</a>
+        <a class="text-on-surface-variant hover:text-primary hover:underline transition-colors" href="cart.html">Shipping & Returns</a>
         <a class="text-on-surface-variant hover:text-primary hover:underline transition-colors" href="#">Help Center</a>
       </div>
       <!-- Links Column 3 -->
@@ -291,7 +291,7 @@
     </div>
   </footer>
 
-  <script src="/js/main.js"></script>
+  <script src="js/main.js"></script>
   <script>
     // Variables to track filters
     let selectedCategories = [];
@@ -347,7 +347,7 @@
         if (priceMax) queryParams.set('maxPrice', priceMax);
         if (sortOption) queryParams.set('sort', sortOption);
 
-        const response = await fetch(`/api/products?${queryParams.toString()}`);
+        const response = await apiFetch(`/api/products?${queryParams.toString()}`);
         if (!response.ok) throw new Error('API Error');
         const products = await response.json();
         
@@ -370,7 +370,7 @@
           const card = document.createElement('div');
           card.className = 'group flex flex-col bg-white border border-outline-variant rounded-lg overflow-hidden hover:shadow-[0_4px_20px_rgba(0,0,0,0.05)] transition-all duration-300 relative';
           card.innerHTML = `
-            <div class="relative aspect-[4/5] bg-surface-container-low overflow-hidden cursor-pointer" onclick="window.location.href='/product.html?id=${product.id}'">
+            <div class="relative aspect-[4/5] bg-surface-container-low overflow-hidden cursor-pointer" onclick="window.location.href='product.html?id=${product.id}'">
               <img alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="${product.image}"/>
               ${badgeHtml}
               <!-- Hover Action -->
@@ -379,7 +379,7 @@
               </div>
             </div>
             <div class="p-md flex flex-col flex-grow justify-between">
-              <div class="cursor-pointer" onclick="window.location.href='/product.html?id=${product.id}'">
+              <div class="cursor-pointer" onclick="window.location.href='product.html?id=${product.id}'">
                 <span class="text-xs text-on-surface-variant uppercase tracking-wider font-semibold">${product.category}</span>
                 <h3 class="font-bold text-on-surface mb-sm line-clamp-1 hover:text-primary transition-colors text-sm">${product.name}</h3>
                 <div class="flex items-center gap-1 mb-2">

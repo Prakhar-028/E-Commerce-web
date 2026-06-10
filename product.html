@@ -120,15 +120,15 @@
   <header class="w-full sticky top-0 z-50 bg-surface border-b border-outline-variant shadow-sm">
     <div class="flex justify-between items-center px-md md:px-lg py-sm max-w-container-max mx-auto">
       <!-- Brand Logo -->
-      <a class="font-headline-md text-headline-md font-bold text-primary tracking-tight flex items-center gap-xs" href="/index.html">
+      <a class="font-headline-md text-headline-md font-bold text-primary tracking-tight flex items-center gap-xs" href="index.html">
         <span class="material-symbols-outlined text-[#006948]">local_hospital</span>
         MEDICARE
       </a>
       
       <!-- Navigation Links -->
       <nav class="hidden md:flex items-center space-x-md">
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary px-2 py-1 rounded transition-all" href="/index.html">Home</a>
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary px-2 py-1 rounded transition-all" href="/shop.html">Shop All</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary px-2 py-1 rounded transition-all" href="index.html">Home</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary px-2 py-1 rounded transition-all" href="shop.html">Shop All</a>
       </nav>
 
       <!-- Search & Trailing Icons -->
@@ -137,11 +137,11 @@
           <span class="material-symbols-outlined absolute left-2 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
           <input class="search-input pl-8 pr-sm py-1 bg-surface-container-low border border-outline-variant rounded-lg text-body-md font-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all w-[200px]" placeholder="Search medicine..." type="text"/>
         </div>
-        <a href="/cart.html" class="p-2 hover:bg-surface-container-low transition-all rounded-full flex items-center justify-center relative">
+        <a href="cart.html" class="p-2 hover:bg-surface-container-low transition-all rounded-full flex items-center justify-center relative">
           <span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
           <span class="absolute top-0 right-0 bg-primary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center translate-x-1 -translate-y-1 hidden">0</span>
         </a>
-        <a href="/login.html" class="p-2 hover:bg-surface-container-low transition-all rounded-full flex items-center justify-center">
+        <a href="login.html" class="p-2 hover:bg-surface-container-low transition-all rounded-full flex items-center justify-center">
           <span class="material-symbols-outlined" data-icon="person">person</span>
         </a>
       </div>
@@ -168,13 +168,13 @@
       <!-- Links Column 1 -->
       <div class="flex flex-col space-y-sm font-label-md text-label-md text-sm">
         <span class="text-on-surface font-semibold mb-xs">Services</span>
-        <a class="text-on-surface-variant hover:text-primary hover:underline transition-colors" href="/shop.html">Pharmacy Services</a>
+        <a class="text-on-surface-variant hover:text-primary hover:underline transition-colors" href="shop.html">Pharmacy Services</a>
         <a class="text-on-surface-variant hover:text-primary hover:underline transition-colors" href="#">Consultations</a>
       </div>
       <!-- Links Column 2 -->
       <div class="flex flex-col space-y-sm font-label-md text-label-md text-sm">
         <span class="text-on-surface font-semibold mb-xs">Support</span>
-        <a class="text-on-surface-variant hover:text-primary hover:underline transition-colors" href="/cart.html">Shipping & Returns</a>
+        <a class="text-on-surface-variant hover:text-primary hover:underline transition-colors" href="cart.html">Shipping & Returns</a>
         <a class="text-on-surface-variant hover:text-primary hover:underline transition-colors" href="#">Help Center</a>
       </div>
       <!-- Links Column 3 -->
@@ -189,7 +189,7 @@
     </div>
   </footer>
 
-  <script src="/js/main.js"></script>
+  <script src="js/main.js"></script>
   <script>
     let currentProduct = null;
     let selectedSize = 'Standard';
@@ -206,15 +206,15 @@
       
       try {
         // Fetch Product Details
-        const prodResponse = await fetch(`/api/products/${productId}`);
+        const prodResponse = await apiFetch(`/api/products/${productId}`);
         if (!prodResponse.ok) {
-          container.innerHTML = `<div class="text-center py-20 text-red-500 font-semibold"><span class="material-symbols-outlined text-4xl block mb-2">error</span>Product not found. <a class="underline" href="/shop.html">Return to Shop</a></div>`;
+          container.innerHTML = `<div class="text-center py-20 text-red-500 font-semibold"><span class="material-symbols-outlined text-4xl block mb-2">error</span>Product not found. <a class="underline" href="shop.html">Return to Shop</a></div>`;
           return;
         }
         currentProduct = await prodResponse.json();
 
         // Fetch Reviews
-        const reviewsResponse = await fetch(`/api/reviews/${productId}`);
+        const reviewsResponse = await apiFetch(`/api/reviews/${productId}`);
         const reviews = reviewsResponse.ok ? await reviewsResponse.json() : [];
 
         // Build HTML
@@ -296,11 +296,11 @@
         container.innerHTML = `
           <!-- Breadcrumbs -->
           <div class="mb-md text-on-surface-variant text-xs flex items-center gap-1">
-            <a class="hover:text-primary transition-colors" href="/index.html">Home</a>
+            <a class="hover:text-primary transition-colors" href="index.html">Home</a>
             <span class="material-symbols-outlined text-[14px]">chevron_right</span>
-            <a class="hover:text-primary transition-colors" href="/shop.html">Shop</a>
+            <a class="hover:text-primary transition-colors" href="shop.html">Shop</a>
             <span class="material-symbols-outlined text-[14px]">chevron_right</span>
-            <a class="hover:text-primary transition-colors" href="/shop.html?category=${currentProduct.category}">${currentProduct.category}</a>
+            <a class="hover:text-primary transition-colors" href="shop.html?category=${currentProduct.category}">${currentProduct.category}</a>
             <span class="material-symbols-outlined text-[14px]">chevron_right</span>
             <span class="text-on-surface font-semibold truncate max-w-[200px]">${currentProduct.name}</span>
           </div>
@@ -550,7 +550,7 @@
       const comment = document.getElementById('rev-comment').value;
 
       try {
-        const response = await fetch('/api/reviews', {
+        const response = await apiFetch('/api/reviews', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
